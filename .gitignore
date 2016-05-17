@@ -1,0 +1,8 @@
+# generated files
+out/
+
+# Intellij project files
+.idea/
+
+# Mac system files
+.DS_Store
