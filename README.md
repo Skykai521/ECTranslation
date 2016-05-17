@@ -11,7 +11,12 @@ Android Studio 翻译插件,可以将英文翻译为中文.
 ![](./img/translation_img.png)
 
 ##修改快捷键
-Preferences -> Keymap -> 搜索Translate - > 右键 add keyboard shortcut.
+
+### 使用键盘快捷键触发
+- Preferences -> Keymap -> 搜索Translate - > 右键 add Keyboard Shortcut. 输入你想要的快捷键即可。
+
+### 使用鼠标触发
+- Preferences -> Keymap -> 搜索Translate - > 右键 add Mouse Shortcut. 设置你想触发的鼠标操作即可。一般设置左键双击就行了。
 
 ##Thanks
 - [有道翻译](http://fanyi.youdao.com/openapi?path=data-mode)
