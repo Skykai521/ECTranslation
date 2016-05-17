@@ -14,4 +14,5 @@ Android Studio 翻译插件,可以将英文翻译为中文.
 Preferences -> Keymap -> 搜索Translate - > 右键 add keyboard shortcut.
 
 ##Thanks
+- [有道翻译](http://fanyi.youdao.com/openapi?path=data-mode)
 - [简单的Android Studio 翻译插件](http://blog.csdn.net/loucyin/article/details/50983172)
