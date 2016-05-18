@@ -2,7 +2,7 @@
 
 Android Studio 翻译插件,可以将英文翻译为中文.
 
-##使用方法
+##1.使用方法
 
 - clone项目,获取ECTranslation.jar.
 - 打开Android Studio, Preferences -> Plugins -> Install plugin from disk -> 选择ECTranslation.jar安装并重启Android Studio.
@@ -10,13 +10,32 @@ Android Studio 翻译插件,可以将英文翻译为中文.
 
 ![](./img/translation_img.png)
 
-##修改快捷键
+##2.修改快捷键
 
 ### 使用键盘快捷键触发
 - Preferences -> Keymap -> 搜索Translate - > 右键 add Keyboard Shortcut. 输入你想要的快捷键即可。
 
 ### 使用鼠标触发
 - Preferences -> Keymap -> 搜索Translate - > 右键 add Mouse Shortcut. 设置你想触发的鼠标操作即可。一般设置左键双击就行了。
+
+##3.更新日志
+
+### V1.1
+- 修复长按快捷键导致Android Studio无响应的问题。
+- 重构代码。
+
+### V1.0
+- 1.0版本发布。实现基本功能。
+
+##4.QA
+
+1. Windows和Mac都可以使用吗？
+  
+  > 可以。
+
+1. 翻译出现乱码怎么办？
+  
+  > [点击查看解决办法](https://github.com/Skykai521/ECTranslation/issues/6)。
 
 ##Thanks
 - [有道翻译](http://fanyi.youdao.com/openapi?path=data-mode)
