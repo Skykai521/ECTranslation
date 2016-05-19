@@ -15,8 +15,8 @@ Android Studio 翻译插件,可以将英文翻译为中文.
 ### 使用键盘快捷键触发
 - Preferences -> Keymap -> 搜索Translate - > 右键 add Keyboard Shortcut. 输入你想要的快捷键即可。
 
-### 使用鼠标触发
-- Preferences -> Keymap -> 搜索Translate - > 右键 add Mouse Shortcut. 设置你想触发的鼠标操作即可。一般设置左键双击就行了。
+### 使用鼠标触发(可以设置，但不建议设置，会影响侧边栏双击的功能)
+- Preferences -> Keymap -> 搜索Translate - > 右键 add Mouse Shortcut. 设置你想触发的鼠标操作即可。但是目前不建议这样设置因为会影响侧边栏功能的使用。所以最好还是根据自己的习惯设置键盘快捷键。
 
 ##3.更新日志
 
