@@ -77,7 +77,7 @@ public class RequestRunnable implements Runnable {
             public void run() {
                 JBPopupFactory factory = JBPopupFactory.getInstance();
                 factory.createHtmlTextBalloonBuilder(result, MessageType.INFO, null)
-                        .setFadeoutTime(3000)
+                        .setFadeoutTime(5000)
                         .createBalloon()
                         .show(factory.guessBestPopupLocation(mEditor) , Balloon.Position.below);
             }
@@ -96,8 +96,7 @@ public class RequestRunnable implements Runnable {
                 .addParameter(PARAM_VERSION, VERSION)
                 .addParameter(PARAM_DOC_TYPE, DOC_TYPE)
                 .addParameter(PARAM_CALL_BACK, CALL_BACK)
-                .addParameter(PARAM_QUERY, query)
-        ;
+                .addParameter(PARAM_QUERY, query);
         return builder.build();
     }
 }

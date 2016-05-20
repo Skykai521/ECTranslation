@@ -187,7 +187,7 @@ public class Translation {
             }
         }
         if (string == null) {
-            string = "你选的内容：" + query + "\n这是个毛线！！！\n翻译不了！";
+            string = "你选的内容：" + query + "\n抱歉,翻译不了...";
         }
         return string;
     }

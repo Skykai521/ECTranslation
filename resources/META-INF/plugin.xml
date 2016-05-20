@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.boohee.plugin.translation</id>
   <name>ECTranslation</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <vendor email="daqingkai@boohee.com" url="https://github.com/Skykai521">Boohee</vendor>
 
   <description><![CDATA[
@@ -12,6 +12,8 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      <li>1.2 : New: Support more translate mode. such as: setContentView, ALIGN_CENTER</li>
+      <li>1.2 : New: Increase popupWindow show time.</li>
       <li>1.1 : New: Code Refactoring.</li>
       <li>1.1 : Fixed: Long click bug.</li>
       <li>1.0 : init </li>

@@ -24,11 +24,21 @@ public class ECTranslation extends AnAction {
             return;
         }
         SelectionModel model = mEditor.getSelectionModel();
-        String queryText = model.getSelectedText();
-        if (TextUtils.isEmpty(queryText)) {
+        String selectedText = model.getSelectedText();
+        if (TextUtils.isEmpty(selectedText)) {
             return;
         }
+        String queryText = addBlanks(selectedText);
         new Thread(new RequestRunnable(mEditor, queryText)).start();
+    }
+
+    public String addBlanks(String str) {
+        String temp = str.replaceAll("_"," ");
+        if (temp.equals(temp.toUpperCase())) {
+            return temp;
+        }
+        String result = temp.replaceAll("([A-Z])", " $0");
+        return result;
     }
 
     public boolean isFastClick(long timeMillis) {
