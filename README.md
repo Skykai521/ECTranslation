@@ -4,7 +4,7 @@ Android Studio 翻译插件,可以将英文翻译为中文.
 
 ##1.使用方法
 
-- Clone项目,获取ECTranslation.jar.
+- Clone项目,获取ECTranslation.jar.或者：[点击下载](https://github.com/Skykai521/ECTranslation/releases)。
 - 打开Android Studio, Preferences -> Plugins -> Install plugin from disk -> 选择ECTranslation.jar安装并重启Android Studio.
 - 选中代码,选择 Edit -> Translate或者按下 command + I(也可以自己设定).即可翻译,效果如下:
 
