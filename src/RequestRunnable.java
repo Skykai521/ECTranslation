@@ -1,9 +1,9 @@
 import com.google.gson.Gson;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.ui.JBColor;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,6 +13,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -76,7 +77,7 @@ public class RequestRunnable implements Runnable {
         ApplicationManager.getApplication().invokeLater(new Runnable() {
             public void run() {
                 JBPopupFactory factory = JBPopupFactory.getInstance();
-                factory.createHtmlTextBalloonBuilder(result, MessageType.INFO, null)
+                factory.createHtmlTextBalloonBuilder(result, null, new JBColor(new Color(186, 238, 186), new Color(73, 117, 73)), null)
                         .setFadeoutTime(5000)
                         .createBalloon()
                         .show(factory.guessBestPopupLocation(mEditor) , Balloon.Position.below);

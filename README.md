@@ -20,6 +20,9 @@ Android Studio 翻译插件,可以将英文翻译为中文.
 
 ##3.更新日志
 
+###V1.3
+- 去除对话框提示的icon。
+
 ###V1.2
 - 增加翻译弹框显示的时间。
 - 增加拆分单词翻译，现在支持类似：setContentView与ALIGN_CENTER的翻译了。
