@@ -153,6 +153,10 @@ public class Translation {
         return result;
     }
 
+    private boolean isSentence() {
+        return query.trim().contains(" ");
+    }
+
     @Override
     public String toString() {
         String string = null;
@@ -163,7 +167,11 @@ public class Translation {
             if (translation != null) {
                 translation = translation.substring(0, translation.length() - 1);
                 if (!translation.equals(query)) {
-                    string = (query + ":" + getTranslationResult() + "\n");
+                    if (isSentence()) {
+                        string = getTranslationResult() + "\n";
+                    } else {
+                        string = (query + ":" + getTranslationResult() + "\n");
+                    }
                 }
             }
             if (getPhonetic() != null) {

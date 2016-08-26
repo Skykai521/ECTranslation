@@ -63,6 +63,7 @@ public class RequestRunnable implements Runnable {
                 Translation translation = gson.fromJson(json, Translation.class);
                 //show result
                 showPopupBalloon(translation.toString());
+                Logger.info(translation.toString());
             } else {
                 showPopupBalloon(response.getStatusLine().getReasonPhrase());
             }
