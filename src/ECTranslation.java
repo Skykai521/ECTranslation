@@ -61,12 +61,19 @@ public class ECTranslation extends AnAction {
                 break;
             }
         }
+
+        int lastLetter = 0;
         for (int ptr = cursor; ptr < lineEndOffset - lineStartOffset; ptr++) {
+            lastLetter = ptr;
             if (!Character.isLetter(chars[ptr])) {
                 end = ptr;
                 break;
             }
         }
+        if (end == 0) {
+            end = lastLetter + 1;
+        }
+
         String ret = new String(chars, start, end-start);
         Logger.info("Selected words: " + ret);
         return ret;
