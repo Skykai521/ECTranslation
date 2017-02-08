@@ -1,3 +1,5 @@
+package com.boohee.plugin.translation;
+
 import java.util.List;
 import java.util.Map;
 

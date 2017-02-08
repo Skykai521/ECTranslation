@@ -1,3 +1,5 @@
+package com.boohee.plugin.translation;
+
 import com.intellij.notification.*;
 
 /**

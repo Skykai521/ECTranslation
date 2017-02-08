@@ -1,3 +1,5 @@
+package com.boohee.plugin.translation;
+
 import com.google.gson.Gson;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.Editor;
