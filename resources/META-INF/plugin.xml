@@ -35,6 +35,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <applicationConfigurable instance="com.boohee.plugin.translation.Configuration"/>
   </extensions>
 
   <actions>

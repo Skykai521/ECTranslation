@@ -19,27 +19,22 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by sky on 16/5/18.
  */
 public class RequestRunnable implements Runnable {
-    private static final String HOST = "fanyi.youdao.com";
-    private static final String PATH = "/openapi.do";
-    private static final String PARAM_KEY_FROM = "keyfrom";
-    private static final String PARAM_KEY = "key";
-    private static final String PARAM_TYPE = "type";
-    private static final String TYPE = "data";
-    private static final String PARAM_DOC_TYPE = "doctype";
-    private static final String DOC_TYPE = "json";
-    private static final String PARAM_CALL_BACK = "callback";
-    private static final String CALL_BACK = "show";
-    private static final String PARAM_VERSION = "version";
-    private static final String VERSION = "1.1";
+    private static final String HOST = "openapi.youdao.com";
+    private static final String PATH = "/api";
     private static final String PARAM_QUERY = "q";
-    //replace your own key, see http://fanyi.youdao.com/openapi?path=data-mode
-    private static final String KEY_FROM = "Skykai521";
-    private static final String KEY = "977124034";
+    private static final String PARAM_KEY_FROM = "from";
+    private static final String PARAM_KEY_TO = "to";
+    private static final String PARAM_KEY_APP_KEY = "appKey";
+    private static final String PARAM_KEY_SALT = "salt";
+    private static final String PARAM_KEY_SIGN = "sign";
+
     private Editor mEditor;
     private String mQuery;
 
@@ -83,7 +78,7 @@ public class RequestRunnable implements Runnable {
                 factory.createHtmlTextBalloonBuilder(result, null, new JBColor(new Color(186, 238, 186), new Color(73, 117, 73)), null)
                         .setFadeoutTime(5000)
                         .createBalloon()
-                        .show(factory.guessBestPopupLocation(mEditor) , Balloon.Position.below);
+                        .show(factory.guessBestPopupLocation(mEditor), Balloon.Position.below);
             }
         });
     }
@@ -91,16 +86,51 @@ public class RequestRunnable implements Runnable {
 
     private URI createTranslationURI(String query) throws URISyntaxException {
         URIBuilder builder = new URIBuilder();
+
+        String salt = String.valueOf(System.currentTimeMillis());
+
         builder.setScheme("http")
                 .setHost(HOST)
                 .setPath(PATH)
-                .addParameter(PARAM_KEY_FROM, KEY_FROM)
-                .addParameter(PARAM_KEY, KEY)
-                .addParameter(PARAM_TYPE, TYPE)
-                .addParameter(PARAM_VERSION, VERSION)
-                .addParameter(PARAM_DOC_TYPE, DOC_TYPE)
-                .addParameter(PARAM_CALL_BACK, CALL_BACK)
-                .addParameter(PARAM_QUERY, query);
+                .addParameter(PARAM_KEY_FROM, "en")
+                .addParameter(PARAM_KEY_TO, "zh_CHS")
+                .addParameter(PARAM_QUERY, query)
+                .addParameter(PARAM_KEY_APP_KEY, Configuration.getAppId())
+                .addParameter(PARAM_KEY_SALT, salt)
+                .addParameter(PARAM_KEY_SIGN, generateSign(query, salt));
         return builder.build();
+    }
+
+    private String generateSign(String q, String salt) {
+        String src = Configuration.getAppId() + q + salt + Configuration.getAppKey();
+        return md5(src);
+    }
+
+    private String md5(String string) {
+        if (string == null) {
+            return null;
+        }
+        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'A', 'B', 'C', 'D', 'E', 'F'};
+        byte[] btInput = string.getBytes();
+        try {
+            /** 获得MD5摘要算法的 MessageDigest 对象 */
+            MessageDigest mdInst = MessageDigest.getInstance("MD5");
+            /** 使用指定的字节更新摘要 */
+            mdInst.update(btInput);
+            /** 获得密文 */
+            byte[] md = mdInst.digest();
+            /** 把密文转换成十六进制的字符串形式 */
+            int j = md.length;
+            char str[] = new char[j * 2];
+            int k = 0;
+            for (byte byte0 : md) {
+                str[k++] = hexDigits[byte0 >>> 4 & 0xf];
+                str[k++] = hexDigits[byte0 & 0xf];
+            }
+            return new String(str);
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
     }
 }
