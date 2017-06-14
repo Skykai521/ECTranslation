@@ -13,11 +13,6 @@ public class Translation {
     private final static String EXPLAINS = "explains";
 
     private final static int SUCCESS = 0;
-    private final static int QUERY_STRING_TOO_LONG = 20;
-    private final static int CAN_NOT_TRANSLATE = 30;
-    private final static int INVALID_LANGUAGE = 40;
-    private final static int INVALID_KEY = 50;
-    private final static int NO_RESULT = 60;
 
     private String[] translation;
     private String query;
@@ -67,20 +62,45 @@ public class Translation {
 
     private String getErrorMessage() {
         switch (errorCode) {
-            case SUCCESS:
-                return "成功";
-            case QUERY_STRING_TOO_LONG:
-                return "要翻译的文本过长";
-            case CAN_NOT_TRANSLATE:
-                return "无法进行有效的翻译";
-            case INVALID_LANGUAGE:
+            case 101:
+                return "缺少必填参数";
+            case 102:
                 return "不支持的语言类型";
-            case INVALID_KEY:
-                return "无效的key";
-            case NO_RESULT:
-                return "无词典结果";
+            case 103:
+                return "翻译文本过长";
+            case 104:
+                return "不支持的API类型";
+            case 105:
+                return "不支持的签名类型";
+            case 106:
+                return "不支持的响应类型";
+            case 107:
+                return "不支持的加密传输类型";
+            case 108:
+                return "appKey无效";
+            case 109:
+                return "batchLog格式不正确";
+            case 110:
+                return "无相关服务的有效实例";
+            case 111:
+                return "开发者账号无效";
+            case 201:
+                return "解密失败";
+            case 202:
+                return "签名检验失败";
+            case 203:
+                return "访问IP地址不在可访问IP列表";
+            case 301:
+                return "辞典查询失败";
+            case 302:
+                return "翻译查询失败";
+            case 303:
+                return "服务端的其他异常";
+            case 401:
+                return "账户已欠费";
+
         }
-        return "这是什么鬼";
+        return "未知返回码: " + errorCode;
     }
 
     private String getPhonetic() {

@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Android Studio AI-141.2456560" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
